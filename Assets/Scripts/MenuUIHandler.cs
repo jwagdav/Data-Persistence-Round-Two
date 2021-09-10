@@ -14,8 +14,10 @@ public class MenuUIHandler : MonoBehaviour
 
     void Start()
     {
+
         UpdateHighScore();
         DisplayHighScore();
+
     }
 
     public void UpdateHighScore()
@@ -43,6 +45,7 @@ public class MenuUIHandler : MonoBehaviour
 
     public void ExitGame()
     {
+        GameManager.Instance.SaveScore();
 
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
