@@ -13,11 +13,14 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+
         if (GameManager.Instance != null)
         {
             Destroy(gameObject);
+            return;
         }
 
+        DontDestroyOnLoad(gameObject);
         Instance = this;
     }
 

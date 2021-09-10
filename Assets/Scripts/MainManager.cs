@@ -82,7 +82,7 @@ public class MainManager : MonoBehaviour
             highScore = m_Points;
         }
 
-        highScoreText = "HighScore: " + highScore;
+        string highScoreText = "HighScore: " + highScore;
     }
 
     public void GameOver()

@@ -11,14 +11,23 @@ public class MenuUIHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI highScoreText;
 
+    void start()
+    {
+        DisplayHighScore();
+    }
 
     public void DisplayHighScore()
     {
-        highScoreText = "Highscore: " + GameManager.Instance.highScore;
+        string highScoreText = "Highscore: " + GameManager.Instance.highScore;
     }
     public void StartGame()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene(1);
     }
 
     public void ExitGame()
