@@ -10,18 +10,27 @@ using UnityEditor;
 public class MenuUIHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI highScoreText;
-    private int highScore;
+    [SerializeField] private int highScore = 0;
 
     void start()
     {
+        UpdateHighScore();
         DisplayHighScore();
+    }
+
+    public void UpdateHighScore()
+    {
+        if(GameManager.Instance.highScore > highScore)
+        {
+            highScore = GameManager.Instance.highScore;
+        }
     }
 
     public void DisplayHighScore()
     {
-        highScore = GameManager.Instance.highScore;
-        highScoreText.text = "Highscore: " + highScore;
+        highScoreText.text = "Text has changed";
     }
+
     public void StartGame()
     {
         SceneManager.LoadScene(0);
