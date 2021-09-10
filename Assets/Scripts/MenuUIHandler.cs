@@ -10,6 +10,7 @@ using UnityEditor;
 public class MenuUIHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI highScoreText;
+    private int highScore;
 
     void start()
     {
@@ -18,7 +19,8 @@ public class MenuUIHandler : MonoBehaviour
 
     public void DisplayHighScore()
     {
-        string highScoreText = "Highscore: " + GameManager.Instance.highScore;
+        highScore = GameManager.Instance.highScore;
+        highScoreText.text = "Highscore: " + highScore;
     }
     public void StartGame()
     {

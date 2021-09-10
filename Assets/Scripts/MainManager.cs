@@ -64,6 +64,7 @@ public class MainManager : MonoBehaviour
         }
 
         UpdateHighScore();
+        DisplayHighScore();
 
     }
 
@@ -75,14 +76,19 @@ public class MainManager : MonoBehaviour
 
     public void UpdateHighScore()
     {
-        highScore = GameManager.Instance.highScore;
+        
 
         if(m_Points > highScore)
         {
             highScore = m_Points;
         }
 
-        string highScoreText = "HighScore: " + highScore;
+        GameManager.Instance.highScore = highScore;
+    }
+
+    private void DisplayHighScore()
+    {
+        highScoreText.text = "HighSore: " + highScore;
     }
 
     public void GameOver()
