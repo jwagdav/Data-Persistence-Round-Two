@@ -11,10 +11,12 @@ public class MainManager : MonoBehaviour
     public Rigidbody Ball;
 
     public Text ScoreText;
+    [SerializeField] private Text highScoreText;
     public GameObject GameOverText;
     
     private bool m_Started = false;
     private int m_Points;
+    private int highScore;
     
     private bool m_GameOver = false;
 
@@ -60,12 +62,27 @@ public class MainManager : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
+
+        UpdateHighScore();
+
     }
 
     void AddPoint(int point)
     {
         m_Points += point;
         ScoreText.text = $"Score : {m_Points}";
+    }
+
+    public void UpdateHighScore()
+    {
+        highScore = GameManager.Instance.highScore;
+
+        if(m_Points > highScore)
+        {
+            highScore = m_Points;
+        }
+
+        highScoreText = "HighScore: " + highScore;
     }
 
     public void GameOver()
