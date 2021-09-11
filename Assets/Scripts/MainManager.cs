@@ -77,18 +77,17 @@ public class MainManager : MonoBehaviour
     public void UpdateHighScore()
     {
         
-
         if(m_Points > highScore)
         {
             highScore = m_Points;
+            GameManager.Instance.highScore = highScore;
         }
 
-        GameManager.Instance.highScore = highScore;
     }
 
     private void DisplayHighScore()
     {
-        highScoreText.text = "HighSore: " + highScore;
+        highScoreText.text = "HighSore: " + GameManager.Instance.highScore;
     }
 
     public void GameOver()
@@ -100,5 +99,7 @@ public class MainManager : MonoBehaviour
     public void ToMenu()
     {
         SceneManager.LoadScene(1);
+
+        GameManager.Instance.SaveScore();
     }
 }

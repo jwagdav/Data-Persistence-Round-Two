@@ -30,7 +30,7 @@ public class MenuUIHandler : MonoBehaviour
 
     public void DisplayHighScore()
     {
-        highScoreText.text = "Highscore: " + highScore;
+        highScoreText.text = "Highscore: " + GameManager.Instance.highScore;
     }
 
     public void StartGame()
